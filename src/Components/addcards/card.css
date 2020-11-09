@@ -1,0 +1,27 @@
+.wrapper, .wrapper2{
+    background: lightgray;
+    padding: 20px;
+    margin: 25px;
+    display: flex;
+    overflow: hidden;
+}
+.wrapper2{
+    background: white;
+}
+.cardbox{
+    padding: 3px;
+    margin:10px;
+    background: white;
+    border-radius: 5px;
+    min-height: 300px;
+    min-width:23%;
+    border: 0.25px solid lightgray;
+}
+.fpic{
+    height:50%;
+   position: relative;
+   top:-30px
+}
+pic{
+    height:50%;
+}

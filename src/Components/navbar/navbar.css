@@ -1,0 +1,45 @@
+.outerbox{
+display: flex;
+justify-content: space-between;
+background: #EBEEEF;
+}
+
+.logo{
+    width:4rem;
+    height:3rem;
+    float: left;
+}
+.firstdiv{
+border: 2px solid black;
+border-top-right-radius: 3px;
+border-radius: 4px;
+background: white;
+
+}
+.lcinput{
+    border: none;
+}
+.lcsearch2{
+    border: 2px solid black;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+
+}
+.searchdiv{
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
+.icons{
+    margin-left: 15px;
+}
+.sellbtn{
+    background: white;
+    border-radius: 50px;
+    min-width: 100px;
+    height: 45px;
+    border: 6px ridge;
+    border-top-color: #23E5DB;
+    border-left-color: #ffce32;
+    border-bottom-color: #3A77FF;
+    border-right-color: #3A77FF ;
+}
