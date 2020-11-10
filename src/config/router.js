@@ -17,7 +17,7 @@ class Approuter extends Component {
                 <Switch>
                <Route exact path='/' component={Home}/>
                 <Route exact path='/auth' component={Auth}/>
-                <Route exact path='/Post' component={Post}/>
+                {/* <Route exact path='/Post' component={Post}/> */}
                 </Switch>
             </Router>
         );
