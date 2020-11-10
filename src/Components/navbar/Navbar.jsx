@@ -70,7 +70,7 @@ class Navbar extends Component {
                         </div>
 
 
-                        <button className='sellbtn icons' style={{ fontWeight: '900' }} ><TiPlus />Sell</button>
+                        <button onClick ={history.push('/post')} className='sellbtn icons' style={{ fontWeight: '900' }} ><TiPlus />Sell</button>
                     </div>
                 </div>
 
