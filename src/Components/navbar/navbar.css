@@ -43,3 +43,10 @@ background: white;
     border-bottom-color: #3A77FF;
     border-right-color: #3A77FF ;
 }
+.profilePic{
+    width: 25px;
+    height:25px;
+    border-radius: 50%;
+    border: 0.8px solid black;
+    margin-left: 10px;
+}

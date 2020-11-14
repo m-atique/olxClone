@@ -3,9 +3,15 @@
 
 import { combineReducers} from 'redux'
 import appReducers from './appReducer'
-import class_reducer from './class_reducer'
-
+import modalReducer from './modalReducer'
+import userReducer from './userReducer'
+import postReducer from './postReducer'
+import CatageryReducer from './CatageryReducer'
 export default combineReducers({
     app: appReducers,
-    class:class_reducer
+   
+    modal:modalReducer,
+    user:userReducer,
+    add: postReducer,
+    Catagery: CatageryReducer
 })

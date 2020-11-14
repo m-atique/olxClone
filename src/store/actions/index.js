@@ -1,7 +1,7 @@
 import firebase from '../../config/firebase'
-// import Auth from '../../Components/auth/auth'
+import history from '../../config/history'
 
-const firebase_login =(history)=>{
+const firebase_login =()=>{
     return (dispatch)=>{
        
             var provider = new firebase.auth.FacebookAuthProvider();
@@ -19,9 +19,13 @@ const firebase_login =(history)=>{
                 }
                 firebase.database().ref('/').child(`user/${user.uid}`).set(create_user)
                 .then(()=>{
+                    dispatch({
+                        type:'setuser',
+                        payload:create_user
+                    })
                     alert('You are logged in ')
                     history.push('/')
-                    
+                   
                 })
 
               }).catch(function(error) {                        // Handle Errors here.
@@ -36,11 +40,39 @@ const firebase_login =(history)=>{
     
 }
 
-// const pgAuth =(history)=>{
-//     return (dispatch)=>{
-     
-//     }
-// }
+
+const showmodal =()=>{
+    return (dispatch)=>{
+        
+        dispatch({
+            type:'showmodal',    
+        })
+    }  
+}
+const hidemodal =()=>{
+    return (dispatch)=>{
+        dispatch({
+            type:'hidemodal',
+            
+        })
+    }
+    
+}
+
+const show_user=()=>{
+    return (dispatch)=>{
+        dispatch({
+            type:'showUser'
+        })
+    }
+}
+
+
+
+
 export {
- firebase_login
+ firebase_login,
+ showmodal,
+ hidemodal,
+ show_user
  } 

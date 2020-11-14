@@ -7,8 +7,8 @@ import { FaRegBell } from 'react-icons/fa'
 import { TiPlus } from 'react-icons/ti'
 
 
-// import { connect } from 'react-redux';
-// import { pgAuth } from '../../store/actions'
+import { connect } from 'react-redux';
+import { showmodal,hidemodal } from '../../store/actions'
 import history from '../../config/history'
 
 
@@ -21,26 +21,17 @@ import './navbar.css'
 
 
 class Navbar extends Component {
-    constructor(props) {
-        super(props)
-        this.state = { addModalShow: false }
-
-    }
-
     render() {
-        let modalClose = () => this.setState({
-            addModalShow: false
-        })
-
+        console.log(this.props.display)
         return (
             <div className='outerbox ' >
                 <div className='p-2'>
-                    <img className='logo' src={Logo} alt="" />
+                    <img className='logo ' src={Logo} alt="" />
                 </div >
                 <div className='col-3'>
                     <div className=' firstdiv m-2 p-2'>
                         <BsSearch />
-                        <input type="text" value='Pakistan' className=' ml-2 lcinput' />
+                        <input type="text" value='Pakistan' className=' ml-2 col-8  lcinput' />
                         <AiOutlineDown />
                     </div>
                 </div>
@@ -53,24 +44,24 @@ class Navbar extends Component {
                     </div>
                 </div>
                 <div className='col-3'>
-                    <div className='icondiv m-2'>
+                    <div className='icondiv m-2 '>
+                        <div style={{display:this.props.display}}>
                         <BsChat size={20} style={{ fontWeight: '900' }} className='icons' />
                         <FaRegBell size={20} className='icons' />
+                        <img  className ='profilePic'src={this.props.user_pic} alt="" />
+                        </div>
                         <div style ={{display:'inline'}}>
                             <ButtonToolbar style= {{display:'inline-block'}}>
-                                <button onClick={() => this.setState({
-                                    addModalShow: true
-                                })} style={{ fontWeight: '500', border:'none' }} className='icons '>Login</button>
-
+                                <button onClick={() => this.props.showmodal()} style={{ fontWeight: '500', border:'none' }} className='icons '>Login</button>
                                 <Auth
-                                    show={this.state.addModalShow}
-                                    onHide={modalClose}
+                                    show={this.props.modal_state}
+                                    onHide={this.props.hidemodal}
                                 />
                             </ButtonToolbar>
                         </div>
 
 
-                        <button  className='sellbtn icons' style={{ fontWeight: '900' }} ><TiPlus />Sell</button>
+                        <button onClick={() => history.push('/Post')} className='sellbtn icons' style={{ fontWeight: '900' }} ><TiPlus />Sell</button>
                     </div>
                 </div>
 
@@ -80,20 +71,24 @@ class Navbar extends Component {
         );
     }
 }
-//--------------------------------------import multiple store
-// const mapStateProps = (state) => ({
-//     app_name: state.app.app_name,
-//     classname: state.class.name
+// --------------------------------------import multiple store
+const mapStateProps = (state) => ({
+    
+    modal_state:state.modal.addModalShow,
+    user_pic:state.user.current_user.pic,
+    display:state.user.display
 
-// })
+})
 
-// //-----------------------------------------------------------dispatch
+//-----------------------------------------------------------dispatch
 
-// const mapDispatchToProps = (dispatch) => ({
-//     loginPg: (history) => dispatch(pgAuth(history))
-// })
+const mapDispatchToProps = (dispatch) => ({
+    showmodal:()=> dispatch(showmodal()),
+    hidemodal:()=> dispatch(hidemodal())
+})
 
-// export default connect(mapStateProps, mapDispatchToProps)(Navbar);
 
-export default Navbar;
+  
+export default connect(mapStateProps, mapDispatchToProps)(Navbar);
+
 

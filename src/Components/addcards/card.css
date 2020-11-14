@@ -3,19 +3,21 @@
     padding: 20px;
     margin: 25px;
     display: flex;
-    overflow: hidden;
+    flex-wrap: wrap;
+    align-items: justify;
+  
+    
 }
 .wrapper2{
     background: white;
 }
 .cardbox{
-    padding: 3px;
+    padding: 10px;
     margin:10px;
     background: white;
     border-radius: 5px;
-    min-height: 300px;
-    min-width:23%;
-    border: 0.25px solid lightgray;
+    border: 0.35px solid lightgray;
+    max-width: 23%;
 }
 .fpic{
     height:50%;

@@ -5,7 +5,7 @@ import { FaFacebookF } from 'react-icons/fa';
 
 
 import { connect } from 'react-redux'
-import { firebase_login } from '../../store/actions'
+import { firebase_login,hidemodal, show_user} from '../../store/actions'
 
 import { Carousel, Modal } from 'react-bootstrap'
 
@@ -59,7 +59,7 @@ class Auth extends Component {
               {/* --------------------------------------------------------------------- */}
               <div>
                 <button className='p-2 m-1 text-center bg-white col-12' style={{ fontWeight: '900', border: '2px solid black', borderRadius: '3px' }}><HiPhone className='mr-3  border border-dark rounded-circle bg-dark text-white ' />Continue with phone No.</button>
-                <button onClick={() => { this.props.firebase_login(this.props.history) }} className='p-2 m-1 text-center bg-white col-12' style={{ fontWeight: '900', border: '2px solid black', borderRadius: '3px' }}><FaFacebookF className='mr-3  border border-dark rounded-circle bg-dark text-white ' />Continue with facebook</button>
+                <button onClick={() => { this.props.firebase_login(); this.props.hidemodal();this.props.showUser()}} className='p-2 m-1 text-center bg-white col-12' style={{ fontWeight: '900', border: '2px solid black', borderRadius: '3px' }}><FaFacebookF className='mr-3  border border-dark rounded-circle bg-dark text-white ' />Continue with facebook</button>
                 <button className='p-2 m-1 text-center bg-white col-12' style={{ fontWeight: '900', border: '2px solid black', borderRadius: '3px' }}><AiOutlineGoogle className='mr-3  border border-dark rounded-circle bg-dark text-white ' />Continue with google</button>
                 <button className='p-2 m-1 text-center bg-white col-12' style={{ fontWeight: '900', border: '2px solid black', borderRadius: '3px' }}><HiMail className='mr-3  border border-dark rounded-circle bg-dark text-white ' />Continue with e-mail</button>
 
@@ -80,14 +80,18 @@ class Auth extends Component {
 
 //--------------------------------------import multiple store
 const mapStateProps = (state) => ({
-  app_name: state.app.app_name,
-  classname: state.class.name
+  
+ 
+  modal_state:state.modal.addModalShow
 })
 
 //-----------------------------------------------------------dispatch
 
 const mapDispatchToProps = (dispatch) => ({
-  firebase_login: (history) => dispatch(firebase_login(history))
+  firebase_login: () => dispatch(firebase_login()),
+  hidemodal: ()=> dispatch(hidemodal()),
+  showUser :()=>{dispatch(show_user())}
+
 })
 
 export default connect(mapStateProps, mapDispatchToProps)(Auth);;
