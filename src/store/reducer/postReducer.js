@@ -1,4 +1,14 @@
 const intial_state = { 
+    current_add:{
+        catagory:'',
+        subcatg:'',
+        title:'',
+        price:'',
+        detail:'',
+        description:'',
+        user_id:'',
+    },
+    
     adds:[
         {
             price:'8000',
@@ -43,16 +53,46 @@ const intial_state = {
 }
 
 export default (state = intial_state, action) => {
-    // switch(action.type){
-    //     case 'addpost':
-    //         return({
-    //             ...state,
-    //             current_user:action.payload
+ 
+    switch(action.type){
+        case 'current_add':
+            return({
+                ...state,
+                current_add:{
+                    ...state.current_add,
+                    catagory:state.current_add.catagory,
+                    catagory:action.payload
+                   
+                }
 
-    //         })
-    // }
+            })
 
+        case 'current_add_subcat':
+            return({
+                
+                ...state,
+                current_add:{
+                    ...state.current_add,
+                    subcatg:state.current_add.subcatg,
+                    subcatg:action.payload
+                   
+               }
+            })
+            case 'new_post':
+                return({
+                    
+                    ...state,
+                    current_add:state.current_add,
+                     current_add:action.payload,
+                    adds:state.adds,
+                    adds:[action.payload,...state.adds]
+                    
+                })   
+    }
+    
+    console.log("data passed",state.current_add) 
+    
     return state
+    
 }
-
 

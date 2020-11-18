@@ -1,4 +1,5 @@
 import firebase from '../../config/firebase'
+import storage from '../../config/firebase'
 import history from '../../config/history'
 
 const firebase_login =()=>{
@@ -67,6 +68,42 @@ const show_user=()=>{
     }
 }
 
+const saveCatg=(MainCat)=>{
+    
+    return (dispatch)=>{
+        dispatch({
+            type:'current_add',
+            payload: MainCat
+        })
+        
+    }
+    
+}
+
+
+
+ const SaveSubcat = (subcat)=>{
+    return (dispatch)=>{
+        dispatch({
+        type:'current_add_subcat',
+        payload: subcat,
+     })
+    }
+    
+}
+
+const PostData=(new_add)=>{
+    return (dispatch)=>{
+        dispatch({
+        type:'new_post',
+        payload:new_add
+    })
+    firebase.database().ref('/').child(`adds/add`).set(new_add)
+        history.push('/')
+    }
+
+}
+
 
 
 
@@ -74,5 +111,9 @@ export {
  firebase_login,
  showmodal,
  hidemodal,
- show_user
+ show_user,
+ saveCatg,
+ SaveSubcat,
+ PostData
+
  } 

@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import { Dropdown } from 'react-bootstrap'
 import './catheader.css'
+import {Container, Col, Row} from 'react-bootstrap'
 
 class Catheader extends Component {
   render() {
     return (
-      <div style={{display:'flex'}}>
-        <div >
+      <Container className ='m-0'>
+        <Row>
           <Dropdown>
             <Dropdown.Toggle variant='white' id="dropdown-basic" style ={{fontWeight:'600'}}>
               ALL CATAGORIES
@@ -57,7 +58,7 @@ class Catheader extends Component {
               </div>
             </Dropdown.Menu>
           </Dropdown>
-        </div>
+        
        
         <div className='menu'>
           <a href="">Mobile Phones</a>
@@ -69,7 +70,8 @@ class Catheader extends Component {
           <a href="">Land & Plots</a>
 
         </div>
-        </div>
+        </Row>
+        </Container>
     );
   }
 }

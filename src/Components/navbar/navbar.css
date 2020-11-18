@@ -1,6 +1,5 @@
 .outerbox{
-display: flex;
-justify-content: space-between;
+
 background: #EBEEEF;
 }
 
@@ -10,10 +9,11 @@ background: #EBEEEF;
     float: left;
 }
 .firstdiv{
-border: 2px solid black;
+border: 2px solid #636464;
 border-top-right-radius: 3px;
 border-radius: 4px;
 background: white;
+
 
 }
 .lcinput{
@@ -21,8 +21,7 @@ background: white;
 }
 .lcsearch2{
     border: 2px solid black;
-    border-top-left-radius: 4px;
-    border-bottom-left-radius: 4px;
+    border-radius: 4px;
 
 }
 .searchdiv{

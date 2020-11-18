@@ -5,7 +5,7 @@ class Largeadd extends Component {
     render() {
         return (
             <div>
-                <img src={olxaddlarge}alt=""/>
+                {/* <img src={olxaddlarge}alt=""/> */}
             </div>
         );
     }

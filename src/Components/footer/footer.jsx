@@ -4,6 +4,7 @@ import {RiFacebookCircleLine}  from "react-icons/ri";
 import {TiSocialTwitterCircular}  from "react-icons/ti";
 import {SiInstagram} from 'react-icons/si';
 import {ImPlay2} from 'react-icons/im';
+import {Container, Col, Row} from 'react-bootstrap'
 
 //-----------------------images
 import appstore from './images/appstore.png'
@@ -13,10 +14,13 @@ import playstore from './images/playstore.png'
 class Footer extends Component {
     render() {
         return (
-            <div>
+            // <div>
 
-                <div className="footer1">
-                    <div className='links'>
+                
+                    <Container className ='col-12 p-0'>
+                       <Row className = 'footer1 col-12 p-0 m-0 pt-2 pb-2'>
+                    {/* <div className='links'> */}
+                    <Col sm={6} md={3} xs={6} lg={3} >
 
                         <h5>
                             PAPULAR CAGEGORIES
@@ -28,8 +32,10 @@ class Footer extends Component {
                             <li>Mobile phones</li>
 
                         </ul>
-                    </div>
-                    <div className='links'>
+                        </Col>
+                    
+                        <Col sm={6} md={3} xs={6} lg={3}>
+
 
                         <h5>
                             TRENDING SEARCHES
@@ -41,8 +47,9 @@ class Footer extends Component {
                             <li>Doges</li>
 
                         </ul>
-                    </div>
-                    <div className='links'>
+                        </Col>
+                        <Col sm={6} md={2} xs={6} lg={2}>
+
 
                         <h5>
                             About Us
@@ -54,8 +61,8 @@ class Footer extends Component {
                             <li></li>
 
                         </ul>
-                    </div>
-                    <div className='links'>
+                        </Col>
+                        <Col sm={6} md={2} xs={6} lg={2}>
                         <h5>
                             OLX
                         </h5>
@@ -67,8 +74,8 @@ class Footer extends Component {
                             <li></li>
 
                         </ul>
-                    </div>
-                    <div className='links'>
+                        </Col>
+                        <Col sm={6} md={2} xs={6} lg={2}>
 
                         <h5>
                             FOLLOW US
@@ -84,9 +91,11 @@ class Footer extends Component {
                             <img className='play' src={playstore} alt="" srcset=""/>
                         </div>
 
-                    </div>
-                </div>
-                <div className='footer2'>
+                    </Col>
+                    </Row>
+                   <Row className='footer2 m-0'>
+                
+                
                     <div className='footerlinks'>
                         Other Countries   <span>  India - South Africa - Indonesia</span>
                     </div>
@@ -94,9 +103,10 @@ class Footer extends Component {
                         Free Classifieds in Pakistan. <span> spa© 2006-2020 OLX</span>
                     </div>
 
-                </div>
+                
+                </Row>
 
-            </div>
+                </Container>
         );
     }
 }

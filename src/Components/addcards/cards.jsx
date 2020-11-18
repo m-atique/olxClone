@@ -3,17 +3,20 @@ import image from './images/image.webp';
 import './card.css'
 import { connect } from 'react-redux'
 import {FiHeart} from 'react-icons/fi'
+import {Container,Col,Row} from 'react-bootstrap'
 
 class Cards extends Component {
     render() {
        
         return (
-            <div className='wrapper  p-0'>
+            <Container  className='wrapper col-12'>
+            {/* <div className='wrapper  p-0'> */}
         {this.props.add.map(
             (value,key)=>{
                  if(value.featured !=='yes'){
                 return(
-                    <div className='cardbox  col-3'>
+                    // <div className='cardbox  col-3'>
+                        <Col sm={12} md={3} xs={12} lg={3} className='cardbox'>
                     <div className='col-12'>
                         <img className='pic col-12' src={value.img} alt="" />
 
@@ -25,7 +28,8 @@ class Cards extends Component {
                 <p style={{ fontSize: '10px' }}>{value.date}</p>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
+                </Col>
 
 // --------------------------------------------------------------
 
@@ -34,7 +38,8 @@ class Cards extends Component {
                 }
         else{
             return(
-                <div className='cardbox col-3'  style={{padding:'0px'}}>
+                // <div className='cardbox col-3'  style={{padding:'0px'}}>
+                <Col sm={12} md={3} xs={12} lg={3} className='cardbox'>
                 <legend  style ={{position:'relative',top:'10px',zIndex:'1'}}>
                     <span style ={{background:"#FFCE32", float: 'left',fontSize:'10px',margin:'5px', padding:'2px',fontWeight:'900'}}>FEATURED</span><span style ={{ float: 'right'}}><FiHeart></FiHeart></span></legend>
                     <div className='col-12'> 
@@ -47,12 +52,14 @@ class Cards extends Component {
                             <p style={{ fontSize: '10px',padding:'5px' }}>{value.date}</p>
                         </div>
                     </div>
-                </div>
+                {/* </div> */}
+                </Col>
             )
         }
             }
         )}              
-            </div>
+            {/* </div> */}
+            </Container>
         );
     }
 }

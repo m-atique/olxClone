@@ -7,6 +7,7 @@ import img from '../navbar/images/logo.png'
 import {Carousel} from 'react-bootstrap'
 
 class PostMain extends Component {
+  
     render() {
         return (
             <div>
